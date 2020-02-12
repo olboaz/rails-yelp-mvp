@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <ul class="navbar-nav mr-auto navbar-dark bg-dark">
+    <li class="navbar-brand"><h1 class="text-light">Restaurants</h1></li>
+    <li class="nav-link"><%= link_to "All", restaurants_path, class: "btn btn-primary btn-lg"%></li>
+    <li class="nav-link"><%= link_to "New one", new_restaurant_path, class: "btn btn-primary btn-lg"%></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <ul class="unstyled list-group">
+    <% @restaurants.each do |restaurant|  %>
+      <li class="list-group-item"><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+    <% end %>
+  </ul>
+</div>

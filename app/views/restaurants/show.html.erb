@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <ul class="navbar-nav mr-auto navbar-dark bg-dark">
+    <li class="navbar-brand"><h1 class="text-light">Restaurants</h1></li>
+    <li class="nav-link"><%= link_to "All", restaurants_path, class: "btn btn-primary btn-lg"%></li>
+    <li class="nav-link"><%= link_to "New one", new_restaurant_path, class: "btn btn-primary btn-lg"%></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <h2><%= @restaurant.name %></h2>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.category %></p>
+  <p><%= @restaurant.phone_number %></p>
+  <hr>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %></li>
+      <li class="list-group-item"><%= review.rating %></li>
+    <% end %>
+    <div>
+      <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+    </div>
+  </ul>
+</div>

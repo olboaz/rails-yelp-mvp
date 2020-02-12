@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <ul class="navbar-nav mr-auto navbar-dark bg-dark">
+    <li class="navbar-brand"><h1 class="text-light">Restaurants</h1></li>
+    <li class="nav-link"><%= link_to "All", restaurants_path, class: "btn btn-primary btn-lg"%></li>
+    <li class="nav-link"><%= link_to "New one", new_restaurant_path, class: "btn btn-primary btn-lg"%></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <h2><%= @restaurant.name %></h2>
+  <%= simple_form_for [ @restaurant, @review ] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= link_to 'Back', restaurant_path(@restaurant), class: "btn btn-secondary" %>
+  <% end %>
+</div>
+
